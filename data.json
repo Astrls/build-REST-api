@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Hâchis Parmentier",
+    "timeToPrepare": "60 minutes",
+    "ingredients": "Potatoes, minced meat, carots, onions",
+    "list of steps": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nostrum reprehenderit aspernatur fugiat molestiae ducimus porro autem, nam voluptate tempore iure minus dolores architecto perferendis officia ipsam, inventore animi totam?"
+  },
+  {
+    "name": "Pasta Carbonara",
+    "timeToPrepare": "30 minutes",
+    "ingredients": "pasta, guanciale, egg, black pepper",
+    "list of steps": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nostrum reprehenderit aspernatur fugiat molestiae ducimus porro autem, nam voluptate tempore iure minus dolores architecto perferendis officia ipsam, inventore animi totam?"
+  },
+  {
+    "name": "Caesar Salad",
+    "timeToPrepare": "30 minutes",
+    "ingredients": "romaine lettuce, chicken, croutons, grana padano, caesar dressing",
+    "list of steps": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nostrum reprehenderit aspernatur fugiat molestiae ducimus porro autem, nam voluptate tempore iure minus dolores architecto perferendis officia ipsam, inventore animi totam?"
+  },
+  {
+    "name": "Grilled Cheese",
+    "timeToPrepare": "15 minutes",
+    "ingredients": ", white bread, american cheese, butter",
+    "list of steps": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nostrum reprehenderit aspernatur fugiat molestiae ducimus porro autem, nam voluptate tempore iure minus dolores architecto perferendis officia ipsam, inventore animi totam?"
+  }
+]
