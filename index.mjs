@@ -2,26 +2,26 @@ import express from "express";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import file from "./data.json" assert { type: "json" };
+import userList from "./users.json" assert { type: "json" };
+
 dotenv.config();
 const app = express();
 const PORT = 9000;
-import file from "./data.json" assert { type: "json" };
-import userList from "./users.json" assert { type: "json" };
 
 // Set up
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.static("public"));
 
-// const users = [];
-
+// Middleware to verify JSON web token presence
 const authToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
   if (token == null) {
     return res.sendStatus(401);
   }
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err) => {
     if (err) return res.sendStatus(403);
     next();
   });
@@ -32,6 +32,7 @@ app.get("/info", (req, res) => {
   res.render("info", { data: file });
 });
 
+//POST request to create a new user
 app.post("/users", async (req, res) => {
   try {
     const hashedPw = await bcrypt.hash(req.body.password, 10);
@@ -45,6 +46,7 @@ app.post("/users", async (req, res) => {
   }
 });
 
+//POST request to login
 app.post("/users/login", async (req, res) => {
   const user = userList.find((user) => user.name === req.body.name);
   if (user == null) {
@@ -64,10 +66,10 @@ app.post("/users/login", async (req, res) => {
   }
 });
 
+//GET request response to display the list of users with their hased password
 app.get("/users", authToken, (req, res) => {
   res.json(userList);
 });
-
 
 //GET request responses giving the JSON object for each recipe
 for (let i = 0; i < file.length; i++) {
