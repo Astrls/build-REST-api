@@ -13,13 +13,13 @@
       <th>Recipe Name</th>
       <th>Available request</th>
       <tr>
-        <td>/<span class="api-key-color">{your_api_key}</span></td>
+        <td>/</td>
         <td>All recipes</td>
         <td>GET</td>
       </tr>
       <% for(let i=0; i < data.length; i++) { %>
       <tr>
-        <td><%= `/recipe${i+1}` %>/<span class="api-key-color">{your_api_key}</span></td>
+        <td><%= `/recipe${i+1}` %></td>
         <td><%= data[i].name %></td>
         <td>GET</td>
       </tr>

@@ -68,26 +68,18 @@ app.get("/users", authToken, (req, res) => {
   res.json(userList);
 });
 
-// app.post('/users/login', (req,res)=> {
-//   const username = req.body.username
-//   const user = {name: username}
-//   const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-//   res.json({accessToken: accessToken})
-// })
-
-
-
-//GET request response giving the entire JSON array for all recipes
-app.get("/:api_key", authToken, (req, res) => {
-  res.send(file);
-});
 
 //GET request responses giving the JSON object for each recipe
 for (let i = 0; i < file.length; i++) {
-  app.get(`/recipe${i + 1}/:api_key`, (req, res) => {
+  app.get(`/recipe${i + 1}`, (req, res) => {
     res.send(file[i]);
   });
 }
+
+//GET request response giving the entire JSON array for all recipes
+app.get("/", authToken, (req, res) => {
+  res.send(file);
+});
 
 //serving app on localhost
 app.listen(PORT, () => console.log("Server live on http://localhost:" + PORT));
